@@ -1,0 +1,16 @@
+{
+  "name": "selenium",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:selenium": "node tests/selenium-test.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0",
+    "chromedriver": "^126.0.0"
+  },
+  "devDependencies": {
+    "start-server-and-test": "^2.0.4"
+  }
+}
