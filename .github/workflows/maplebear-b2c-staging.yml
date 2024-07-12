@@ -30,6 +30,9 @@ jobs:
           npm install chromedriver
 
       - name: Run Selenium tests
+        env:
+          ADMIN_LOGIN_USERNAME: ${{ secrets.ADMIN_LOGIN_USERNAME }}
+          ADMIN_LOGIN_PASSWORD: ${{ secrets.ADMIN_LOGIN_PASSWORD }}
         run: npm run test:selenium
 
       - name: Upload test artifacts
