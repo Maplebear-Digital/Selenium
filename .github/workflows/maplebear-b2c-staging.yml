@@ -1,4 +1,4 @@
-name: Magento B2C Staging Test
+name: Maplebear B2C Staging Test
 
 on:
   workflow_dispatch:
