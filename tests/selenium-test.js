@@ -23,6 +23,10 @@ import fs from 'fs';
         let title = await driver.getTitle();
         console.log(title);
 
+        //variaveis secret
+        console.log(process.env.ADMIN_LOGIN_USERNAME);
+        console.log(process.env.ADMIN_LOGIN_PASSWORD);
+
         // Captura de tela da página inicial
         let screenshotPath = path.join(process.cwd(), 'homepage.png');
         await driver.takeScreenshot().then(
