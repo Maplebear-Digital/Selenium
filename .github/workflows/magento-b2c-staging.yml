@@ -1,4 +1,4 @@
-name: Build and Deploy Vue.js App to GitHub Pages
+name: Magento B2C Staging Test
 
 on:
   workflow_dispatch:
