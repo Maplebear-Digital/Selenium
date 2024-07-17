@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: selenium-artifacts
-          path: '*.png,*.pdf'
+          path: test-report.pdf
