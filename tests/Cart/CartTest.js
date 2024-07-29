@@ -2,16 +2,17 @@ import { getDriver } from '../DriverSetup.js';
 import { CartPage } from '../../pages/Cart/CartPage.js'
 import { HomePage } from '../../pages/Home/HomePage.js';
 import { LoginPage } from '../../pages/Login/LoginPage.js';
+import saveScreenshot from '../../functions/screenshot.js'
 
 let driver;
 let cart;
 let login;
 let home;
 
-describe('Access Cart Test', function() {
+describe('Access Cart Test', function () {
   this.timeout(30000);
 
-  before(async function() {
+  before(async function () {
     driver = await getDriver();
     cart = new CartPage(driver);
     home = new HomePage(driver);
@@ -22,13 +23,25 @@ describe('Access Cart Test', function() {
   //   await driver.quit();
   // });
 
-  it('should access cart', async function() {
-    await login.closeCookies();
-    await home.buyMaterials();
-    await cart.verifyPearson();
+  it('should access cart', async function () {
+    try {
+      await login.closeCookies();
+      await home.buyMaterials();
+     
+     
+      await cart.verifyPearson();
+      await saveScreenshot(driver, 'screenshots/Success/Cart/RegisterStudent/should_access_cart.png');
+      await cart.verifyCheckout();
+    } catch (error) {
+      if (driver) {
+        await saveScreenshot(driver, 'screenshots/Error/Cart/RegisterStudent/should_access_cart.png');
+        await driver.quit();
+      }
 
+      throw error;
+    }
   });
 
 
-  
+
 });

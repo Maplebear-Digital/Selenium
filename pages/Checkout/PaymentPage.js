@@ -35,6 +35,10 @@ export class PaymentPage {
         await nameCard.sendKeys(name);
         let installments = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="getnet_paymentmagento_cc_installments"]')), this.timeout);
         await installments.sendKeys('1');
+       
+    }
+
+    async payCreditCard(){
         let button = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="action-button-cc"]')),this.timeout);
         await button.click();
     }

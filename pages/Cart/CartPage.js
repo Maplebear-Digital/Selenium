@@ -1,9 +1,12 @@
 import { By, until } from 'selenium-webdriver';
 
+var cont = 0;
 export class CartPage {
     constructor(driver) {
         this.driver = driver;
     }
+
+
 
 
     async continueToCheckout() {
@@ -19,7 +22,8 @@ export class CartPage {
             await this.verifyModalPearson();
             let checkboxButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="wrapper"]/div[1]/div[3]/div[1]')), this.timeout);
             await checkboxButton.click();
-            await this.continueToCheckout();
+          //  await this.continueToCheckout();
+            cont = 1;
         }  
         if (nameSlmText.includes('SLM+ Bear Care') || nameSlmText.includes('SLM+ Toddler') ||
             nameSlmText.includes('SLM+ Nursery') || nameSlmText.includes('SLM+ Junior Kidergarten') ||
@@ -27,15 +31,11 @@ export class CartPage {
             nameSlmText.includes('SLM+ Year 2') || nameSlmText.includes('SLM+ Year 10') ||
             nameSlmText.includes('SLM+ Year 11') || nameSlmText.includes('SLM+ Year 12')) {
                 
-                return await this.continueToCheckout();
+                
+                cont = 1;
         }
         else {
-            await this.continueToCheckout();
-            await  this.verifyModalPearson();
-            let checkboxButton1 = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="wrapper"]/div[1]/div[3]/div[1]')), this.timeout); 
-            await checkboxButton1.click();
-            await this.continueToCheckout();
-            return await this.continueWithoutPearson();
+           cont = 2;
         }
 
     }
@@ -50,5 +50,18 @@ export class CartPage {
         await continueButton.click();
     }
 
+    async verifyCheckout(){
+        if(cont == 1){
+            return await this.continueToCheckout();
+        }
+        else{
+            await this.continueToCheckout();
+            await  this.verifyModalPearson();
+            let checkboxButton1 = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="wrapper"]/div[1]/div[3]/div[1]')), this.timeout); 
+            await checkboxButton1.click();
+            await this.continueToCheckout();
+            return await this.continueWithoutPearson();
+        }
+    }
 
 }

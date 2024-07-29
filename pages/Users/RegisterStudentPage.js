@@ -25,11 +25,14 @@ export class RegisterStudent {
     async insertNameStudent(name) {
         let nameField = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="dependent-create-section"]/span[1]/input')), this.timeout);
         await nameField.sendKeys(name);
+        console.log('Nome inserido ' + name)
     }
 
     async birthdayDate(date) {
         let bdField = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="dependent_date_of_birth"]')), this.timeout);
         await bdField.sendKeys(date)
+
+        console.log('data de nascimento inserido ' + date)
     }
 
     async selectGender() {
@@ -38,11 +41,15 @@ export class RegisterStudent {
         let options = await select.getOptions();
         let randomIndex = Math.floor(Math.random() * (options.length - 1) + 1);
         await select.selectByIndex(randomIndex);
+
+        console.log('genero ' + randomIndex)
     }
 
     async clickButtonToContinueToCourses(){
         let continueButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="dependent-create-section"]/div[3]/button')),this.timeout);
         await continueButton.click();
+
+        console.log('clicou no botão continuar aos cursos')
     }
 
     async selectYear(){
@@ -51,6 +58,7 @@ export class RegisterStudent {
         let option = await select.getOptions();
         let randomIndex = Math.floor(Math.random() * (option.length - 1)+1);
         await select.selectByIndex(randomIndex);
+        console.log('year ' + randomIndex)
     }
 
     async selectGrade(){

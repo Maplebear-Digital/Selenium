@@ -1,9 +1,12 @@
 import { getDriver } from '../DriverSetup.js';
 import { RegisterStudent } from '../../pages/Users/RegisterStudentPage.js';
 import { strict as assert } from 'assert';
+import saveScreenshot from '../../functions/screenshot.js'
 
 let driver;
 let registerStudent;
+
+
 
 
 describe('Register Student Test', function() {
@@ -20,18 +23,31 @@ describe('Register Student Test', function() {
 
   
   it('should register student', async function() {
-    await registerStudent.createStudent();
-    await registerStudent.selectSchool();
-    await registerStudent.insertNameStudent('Gabriel Oliveira');
-    await registerStudent.birthdayDate('17102017');
-    await registerStudent.selectGender();
-    await registerStudent.clickButtonToContinueToCourses();
-    await registerStudent.selectYear();
-    await registerStudent.selectGrade();
-    await registerStudent.clickButtonRegisterStudent();
-    let isStudentNameCorrect = await registerStudent.verifyStudent('Gabriel Oliveira');
-    assert.strictEqual(isStudentNameCorrect, true, 'Student name is not displayed correctly');
-    await registerStudent.clickButtonContinueRegisterResponsible();
-  }); 
+    
+      try{
+        await registerStudent.createStudent();
+        await registerStudent.selectSchool();
+        await registerStudent.insertNameStudent('Gabriel Oliveira');
+        await registerStudent.birthdayDate('17102017');
+        await registerStudent.selectGender();
+        await registerStudent.clickButtonToContinueToCourses();
+        await registerStudent.selectYear();
+        await registerStudent.selectGrade();
+        await registerStudent.clickButtonRegisterStudent();
+        let isStudentNameCorrect = await registerStudent.verifyStudent('Gabriel Oliveira');
+        assert.strictEqual(isStudentNameCorrect, true, 'Student name is not displayed correctly');
+        await saveScreenshot(driver, 'screenshots/Success/User/RegisterStudent/should_register_student.png')
+        await registerStudent.clickButtonContinueRegisterResponsible();
+      }catch(error){
+        if(driver){
+          await saveScreenshot(driver, 'screenshots/Error/User/RegisterStudent/should_register_student.png')
+          await driver.quit();
+        }
+      
+      throw error;
+    }
   
+  
+});
+
 });

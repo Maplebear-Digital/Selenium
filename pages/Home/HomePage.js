@@ -6,9 +6,10 @@ export class HomePage {
     }
 
     async buyMaterials() {
-        this.driver.sleep(3000)
+        
         let buyButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="maincontent"]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[1]')), this.timeout);
         await buyButton.click();
+        
     }
 
     async myOrders() {

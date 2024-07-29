@@ -14,7 +14,7 @@ export async function getDriver() {
     options.addArguments('--window-size=1920,1080');
     driverInstance = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
     
-    //driverInstance = await new Builder().forBrowser('chrome').build()
+   // driverInstance = await new Builder().forBrowser('chrome').build()
   }
   return driverInstance;
 }
