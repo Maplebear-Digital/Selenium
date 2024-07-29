@@ -25,7 +25,7 @@ describe('Payment', function () {
       await payment.paymentCreditCard();
       //await saveScreenshot(driver, 'screenshots/Success/Checkout/CreditCard/should_choose_credit_card_pt1.png');
       await payment.insertCreditCardCredencials('5155901222280001', '123', '12', '2026', 'Teste GetNet');
-      const screenshotPath = path.join(__dirname, '../../screenshots/Success/Checkout/CreditCard/should_choose_credit_card2.png');
+     await saveScreenshot(driver, 'screenshots/Success/Checkout/CreditCard/should_choose_credit_card2.png');
       await payment.payCreditCard();
     } catch (error) {
       if (driver) {
