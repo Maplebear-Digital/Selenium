@@ -2,6 +2,8 @@ import { getDriver } from '../DriverSetup.js';
 import { PaymentPage } from '../../pages/Checkout/PaymentPage.js';
 import { strict as assert } from 'assert';
 import saveScreenshot from '../../functions/screenshot.js'
+import fs from 'fs';
+import path from 'path';
 let driver;
 let payment;
 
@@ -23,7 +25,7 @@ describe('Payment', function () {
       await payment.paymentCreditCard();
       //await saveScreenshot(driver, 'screenshots/Success/Checkout/CreditCard/should_choose_credit_card_pt1.png');
       await payment.insertCreditCardCredencials('5155901222280001', '123', '12', '2026', 'Teste GetNet');
-      await saveScreenshot(driver, 'screenshots/Success/Checkout/CreditCard/should_choose_credit_card.png');
+      const screenshotPath = path.join(__dirname, '../../screenshots/Success/Checkout/CreditCard/should_choose_credit_card.png');
       await payment.payCreditCard();
     } catch (error) {
       if (driver) {
