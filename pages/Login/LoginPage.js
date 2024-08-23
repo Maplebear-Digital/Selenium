@@ -28,6 +28,7 @@ export class LoginPage {
     let loginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="send2"]')), this.timeout);
     await this.driver.sleep(1000);
     await loginButton.click();
+    await this.driver.sleep(10000);
   }
 
   async closeCookies(){
