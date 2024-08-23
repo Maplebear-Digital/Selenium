@@ -25,11 +25,11 @@ describe('Payment', function () {
       await payment.paymentCreditCard();
       //await saveScreenshot(driver, 'screenshots/Success/Checkout/CreditCard/should_choose_credit_card_pt1.png');
       await payment.insertCreditCardCredencials('5155901222280001', '123', '12', '2026', 'Teste GetNet');
-     await saveScreenshot(driver, 'screenshots/Success/Checkout/CreditCard/should_choose_credit_card2.png');
+     await saveScreenshot(driver, 'screenshots/7_success_should_choose_credit_card2.png');
       await payment.payCreditCard();
     } catch (error) {
       if (driver) {
-        await saveScreenshot(driver, 'screenshots/Error/Checkout/CreditCard/should_choose_credit_card2.png');
+        await saveScreenshot(driver, 'screenshots/7_error_should_choose_credit_card2.png');
         await driver.quit();
       }
       throw error;

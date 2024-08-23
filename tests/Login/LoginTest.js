@@ -22,10 +22,10 @@ describe('Login Test', function () {
   it('should open the login page', async function () {
     try {
       await loginPage.open();
-      await saveScreenshot(driver, 'screenshots/Success/Login/should_open_the_login_page.png');
+      await saveScreenshot(driver, 'screenshots/1_success_should_open_the_login_page.png');
     } catch (error) {
       if (driver) {
-        await saveScreenshot(driver, 'screenshots/Error/Login/should_open_the_login_page.png');
+        await saveScreenshot(driver, 'screenshots/1_error_should_open_the_login_page.png');
         await driver.quit();
       }
 
@@ -36,11 +36,11 @@ describe('Login Test', function () {
   it('must login', async function () {
     try {
       await loginPage.enterCpf(cpf);
-      await saveScreenshot(driver, 'screenshots/Success/Login/must_login.png');
+      await saveScreenshot(driver, 'screenshots/2_success_must_login.png');
       await loginPage.clickLogin();
     } catch (error) {
       if (driver) {
-        await saveScreenshot(driver, 'screenshots/Error/User/RegisterStudent/must_login.png')
+        await saveScreenshot(driver, 'screenshots/2_error_must_register_new_user_login.png')
         await driver.quit();
       }
 

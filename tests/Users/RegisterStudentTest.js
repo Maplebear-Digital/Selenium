@@ -36,11 +36,11 @@ describe('Register Student Test', function() {
         await registerStudent.clickButtonRegisterStudent();
         let isStudentNameCorrect = await registerStudent.verifyStudent('Gabriel Oliveira');
         assert.strictEqual(isStudentNameCorrect, true, 'Student name is not displayed correctly');
-        await saveScreenshot(driver, 'screenshots/Success/User/RegisterStudent/should_register_student.png')
+        await saveScreenshot(driver, 'screenshots/3_success_should_register_student.png')
         await registerStudent.clickButtonContinueRegisterResponsible();
       }catch(error){
         if(driver){
-          await saveScreenshot(driver, 'screenshots/Error/User/RegisterStudent/should_register_student.png')
+          await saveScreenshot(driver, 'screenshots/3_error_should_register_student.png')
           await driver.quit();
         }
       

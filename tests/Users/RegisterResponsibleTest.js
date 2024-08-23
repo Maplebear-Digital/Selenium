@@ -27,17 +27,17 @@ describe('Register Responsible Test', function () {
     await registerResponsible.insertEmail('email' + randomIndex + '@testesteste.com');
     await registerResponsible.insertPassword('Senha123@');
     await registerResponsible.insertConfirmPassword('Senha123@');
-    await saveScreenshot(driver, 'screenshots/Success/User/RegisterResponsible/should_register_responsible_pt1.png');
+    await saveScreenshot(driver, 'screenshots/4_success_should_register_responsible_pt1.png');
     await registerResponsible.clickButtonToContinueToAddress();
     await registerResponsible.selectCheckbox();
     await registerResponsible.insertCEP(12092856);
     await registerResponsible.insertAddress2('Casa 2');
     await registerResponsible.insertNumber('450');
-    await saveScreenshot(driver, 'screenshots/Success/User/RegisterResponsible/should_register_responsible_pt2.png');
+    await saveScreenshot(driver, 'screenshots/5_success_should_register_responsible_pt2.png');
     await registerResponsible.clickButtonSaveResponsible();
     }catch(error){
       if(driver){
-        await saveScreenshot(driver, 'screenshots/Error/User/RegisterResponsible/should_register_responsible.png');
+        await saveScreenshot(driver, 'screenshots/4_error_should_register_responsible.png');
         await driver.quit();
       }
     

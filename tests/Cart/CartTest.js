@@ -30,11 +30,11 @@ describe('Access Cart Test', function () {
      
      
       await cart.verifyPearson();
-      await saveScreenshot(driver, 'screenshots/Success/Cart/RegisterStudent/should_access_cart.png');
+      await saveScreenshot(driver, 'screenshots/6_success_should_access_cart.png');
       await cart.verifyCheckout();
     } catch (error) {
       if (driver) {
-        await saveScreenshot(driver, 'screenshots/Error/Cart/RegisterStudent/should_access_cart.png');
+        await saveScreenshot(driver, 'screenshots/6_error_should_access_cart.png');
         await driver.quit();
       }
 
