@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test:selenium": "npx mocha --bail tests/selenium-test.js"
+    "test:selenium": "npx mocha --bail tests/selenium-test.js",
+    "test:pdf": "npx mocha --bail tests/generate-pdf.js"
   },
   "dependencies": {
     "chromedriver": "^126.0.0",
