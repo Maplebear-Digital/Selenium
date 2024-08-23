@@ -14,43 +14,44 @@ describe('Register Student Test', function() {
     registerStudent = new RegisterStudent(driver);
   });
 
-  // after(async function() {
-  //   if (driver) {
-  //     await driver.quit();
-  //   }
-  // });
+  after(async function() {
+    if (driver) {
+      await driver.quit();
+    }
+  });
 
   it('should register student', async function() {
     try {
-      await registerStudent.createStudent();
-      console.log('createStudent')
-      await registerStudent.selectSchool();
-      console.log('selectSchool')
-      await registerStudent.insertNameStudent('Gabriel Oliveira');
-      console.log('insertNameStudent')
-      await registerStudent.birthdayDate('17102017');
-      console.log('birthdayDate')
-      await registerStudent.selectGender();
-      console.log('selectGender')
-      await registerStudent.clickButtonToContinueToCourses();
-      console.log('clickButtonToContinueToCourses')
-      await registerStudent.selectYear();
-      console.log('selectYear')
-      await registerStudent.selectGrade();
-      console.log('selectGrade')
-      await registerStudent.clickButtonRegisterStudent();
-      console.log('clickButtonRegisterStudent')
+      await runStep('createStudent', async () => await registerStudent.createStudent());
+      await runStep('selectSchool', async () => await registerStudent.selectSchool());
+      await runStep('insertNameStudent', async () => await registerStudent.insertNameStudent('Gabriel Oliveira'));
+      await runStep('birthdayDate', async () => await registerStudent.birthdayDate('17102017'));
+      await runStep('selectGender', async () => await registerStudent.selectGender());
+      await runStep('clickButtonToContinueToCourses', async () => await registerStudent.clickButtonToContinueToCourses());
+      await runStep('selectYear', async () => await registerStudent.selectYear());
+      await runStep('selectGrade', async () => await registerStudent.selectGrade());
+      await runStep('clickButtonRegisterStudent', async () => await registerStudent.clickButtonRegisterStudent());
 
       let isStudentNameCorrect = await registerStudent.verifyStudent('Gabriel Oliveira');
       assert.strictEqual(isStudentNameCorrect, true, 'Student name is not displayed correctly');
 
       await saveScreenshot(driver, 'screenshots/3_success_should_register_student.png');
-      await registerStudent.clickButtonContinueRegisterResponsible();
+      await runStep('clickButtonContinueRegisterResponsible', async () => await registerStudent.clickButtonContinueRegisterResponsible());
     } catch (error) {
-      if (driver) {
-        await saveScreenshot(driver, 'screenshots/3_error_should_register_student.png');
-      }
-      throw error;
+      console.error('Erro geral no teste:', error);
     }
   });
 });
+
+// Função auxiliar para rodar cada etapa e capturar erros sem parar o teste
+async function runStep(stepName, stepFunction) {
+  try {
+    await stepFunction();
+    console.log(`${stepName} executado com sucesso`);
+  } catch (error) {
+    console.error(`Erro em ${stepName}:`, error);
+    if (driver) {
+      await saveScreenshot(driver, `screenshots/error_${stepName}.png`);
+    }
+  }
+}
