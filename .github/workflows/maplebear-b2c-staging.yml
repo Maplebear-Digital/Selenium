@@ -37,7 +37,7 @@ jobs:
         run: npm run test:selenium
 
       - name: Generate PDF from screenshots
-        run: node generate-pdf.js
+        run: npm run test:pdf
 
       - name: Upload test artifacts
         uses: actions/upload-artifact@v4
