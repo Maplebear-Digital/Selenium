@@ -36,8 +36,9 @@ describe('Login Test', function () {
   it('must login', async function () {
     try {
       await loginPage.enterCpf(cpf);
-      await saveScreenshot(driver, 'screenshots/2_success_must_login.png');
+      await saveScreenshot(driver, 'screenshots/2_success_insert_taxvat.png');
       await loginPage.clickLogin();
+      await saveScreenshot(driver, 'screenshots/3_success_access_page.png');
     } catch (error) {
       if (driver) {
         await saveScreenshot(driver, 'screenshots/2_error_must_register_new_user_login.png')
