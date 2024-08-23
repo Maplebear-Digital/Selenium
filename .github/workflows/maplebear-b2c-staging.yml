@@ -36,6 +36,9 @@ jobs:
           ADMIN_LOGIN_PASSWORD: ${{ secrets.ADMIN_LOGIN_PASSWORD }}
         run: npm run test:selenium
 
+      - name: Generate PDF from screenshots
+        run: node tests/generate-pdf.js
+
       - name: Upload test artifacts
         uses: actions/upload-artifact@v4
         with:
