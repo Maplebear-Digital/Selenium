@@ -25,28 +25,27 @@ describe('Register Responsible Test', function () {
     try{await registerResponsible.insertNameResponsible('Alvaro Araujo');
       console.log('insertNameResponsible')
     await registerResponsible.insertTelephone('1240028922');
-      console.log('insertNameResponsible')
+      console.log('insertTelephone')
     await registerResponsible.insertEmail('email' + randomIndex + '@testesteste.com');
-      console.log('insertNameResponsible')
+      console.log('insertEmail')
     await registerResponsible.insertPassword('Senha123@');
-      console.log('insertNameResponsible')
+      console.log('insertPassword')
     await registerResponsible.insertConfirmPassword('Senha123@');
-      console.log('insertNameResponsible')
+      console.log('insertConfirmPassword')
     await saveScreenshot(driver, 'screenshots/4_success_should_register_responsible_pt1.png');
-      console.log('insertNameResponsible')
     await registerResponsible.clickButtonToContinueToAddress();
-      console.log('insertNameResponsible')
+      console.log('clickButtonToContinueToAddress')
     await registerResponsible.selectCheckbox();
-      console.log('insertNameResponsible')
+      console.log('selectCheckbox')
     await registerResponsible.insertCEP(12092856);
-      console.log('insertNameResponsible')
+      console.log('insertCEP')
     await registerResponsible.insertAddress2('Casa 2');
-      console.log('insertNameResponsible')
+      console.log('insertAddress2')
     await registerResponsible.insertNumber('450');
-      console.log('insertNameResponsible')
+      console.log('insertNumber')
     await saveScreenshot(driver, 'screenshots/5_success_should_register_responsible_pt2.png');
     await registerResponsible.clickButtonSaveResponsible();
-      console.log('insertNameResponsible')
+      console.log('clickButtonSaveResponsible')
     }catch(error){
       if(driver){
         await saveScreenshot(driver, 'screenshots/4_error_should_register_responsible.png');
