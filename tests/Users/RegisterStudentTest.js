@@ -14,11 +14,11 @@ describe('Register Student Test', function() {
     registerStudent = new RegisterStudent(driver);
   });
 
-  after(async function() {
-    if (driver) {
-      await driver.quit();
-    }
-  });
+  // after(async function() {
+  //   if (driver) {
+  //     await driver.quit();
+  //   }
+  // });
 
   it('should register student', async function() {
     try {
