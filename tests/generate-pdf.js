@@ -1,9 +1,9 @@
-const fs = require('fs');
-const PDFDocument = require('pdfkit');
-const path = require('path');
+import fs from 'fs';
+import PDFDocument from 'pdfkit';
+import path from 'path';
 
-const screenshotsDir = path.join(__dirname, 'screenshots');
-const outputPDF = path.join(__dirname, 'screenshots', 'test-results.pdf');
+const screenshotsDir = path.join(process.cwd(), 'screenshots');
+const outputPDF = path.join(screenshotsDir, 'test-results.pdf');
 
 const doc = new PDFDocument();
 
@@ -13,7 +13,7 @@ fs.readdirSync(screenshotsDir).forEach(file => {
     const filePath = path.join(screenshotsDir, file);
     if (path.extname(filePath) === '.png') {
         doc.addPage().image(filePath, {
-            fit: [500, 400],
+            fit: [500, 400], // Ajuste o tamanho da imagem conforme necessário
             align: 'center',
             valign: 'center'
         });
