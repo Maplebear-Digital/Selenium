@@ -17,7 +17,7 @@ describe('Register Student Test', function() {
   after(async function() {
     if (driver) {
       try {
-        await driver.quit();
+        // await driver.quit();
       } catch(error) {
         console.log('segue vida')
       }
