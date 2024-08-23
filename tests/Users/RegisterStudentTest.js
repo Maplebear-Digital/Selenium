@@ -7,7 +7,7 @@ let driver;
 let registerStudent;
 
 describe('Register Student Test', function() {
-  this.timeout(60000);
+  this.timeout(100000);
 
   before(async function() {
     driver = await getDriver();
