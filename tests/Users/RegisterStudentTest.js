@@ -7,18 +7,18 @@ let driver;
 let registerStudent;
 
 describe('Register Student Test', function() {
-  this.timeout(60000);
+  this.timeout(30000);
 
   before(async function() {
     driver = await getDriver();
     registerStudent = new RegisterStudent(driver);
   });
 
-  // after(async function() {
-  //   if (driver) {
-  //     await driver.quit();
-  //   }
-  // });
+  after(async function() {
+    if (driver) {
+      await driver.quit();
+    }
+  });
 
   it('should register student', async function() {
     try {
@@ -38,7 +38,9 @@ describe('Register Student Test', function() {
       await saveScreenshot(driver, 'screenshots/3_success_should_register_student.png');
       await registerStudent.clickButtonContinueRegisterResponsible();
     } catch (error) {
-      await saveScreenshot(driver, 'screenshots/3_error_should_register_student.png');
+      if (driver) {
+        await saveScreenshot(driver, 'screenshots/3_error_should_register_student.png');
+      }
       throw error;
     }
   });
