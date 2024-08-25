@@ -1,4 +1,4 @@
-import { By, until } from 'selenium-webdriver';
+import { By, Key, until } from 'selenium-webdriver';
 
 export class LoginPage {
   constructor(driver) {
@@ -40,8 +40,9 @@ export class LoginPage {
   }
 
   async clickLoginAdmin() {
-    let loginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@class="action-login"]')), this.timeout);
-    await loginButton.click();
+    let passwordField = await this.driver.wait(until.elementLocated(By.xpath('//input[@id="login"]')), this.timeout);
+    await passwordField.sendKeys(Key.RETURN);
+    await this.driver.sleep(3000);
   }
 
   async clickLogin() {
