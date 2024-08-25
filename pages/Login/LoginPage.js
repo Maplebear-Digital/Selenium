@@ -41,9 +41,7 @@ export class LoginPage {
 
   async clickLoginAdmin() {
     let loginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@class="action-login"]')), this.timeout);
-    await this.driver.sleep(1000);
     await loginButton.click();
-    await this.driver.sleep(10000);
   }
 
   async clickLogin() {

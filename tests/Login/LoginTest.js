@@ -69,7 +69,7 @@ describe('Login Test', function () {
       await loginPage.enterPasswordAdmin('Senha123@@@@');
       await saveScreenshot(driver, 'screenshots/4_success_insert_user.png');
       await loginPage.clickLoginAdmin();
-      await saveScreenshot(driver, 'screenshots/4_success_access_admin.png');
+      await saveScreenshot(driver, 'screenshots/5_success_access_admin.png');
     } catch (error) {
       if (driver) {
         await saveScreenshot(driver, 'screenshots/2_error_must_admin_login.png')
