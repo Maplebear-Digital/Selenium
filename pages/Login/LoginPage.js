@@ -4,10 +4,15 @@ export class LoginPage {
   constructor(driver) {
     this.driver = driver;
     this.url = 'https://b2c-staging.maplebearstore.com.br/customer/account/login/referer/aHR0cHM6Ly9iMmMtc3RhZ2luZy5tYXBsZWJlYXJzdG9yZS5jb20uYnIvY3VzdG9tZXIvYWNjb3VudC9pbmRleC8~/'; 
+    this.urlAdmin = 'https://b2c-staging.maplebearstore.com.br/painel';
   }
 
   async open() {
     await this.driver.get(this.url);
+  }
+
+  async openAdmin() {
+    await this.driver.get(this.urlAdmin);
   }
 
   async getTitle() {
@@ -22,6 +27,23 @@ export class LoginPage {
   async enterPassword(password) {
     let passwordField = await this.driver.wait(until.elementLocated(By.xpath('//input[@id="password"]')), this.timeout);
     await passwordField.sendKeys(password);
+  }
+
+  async enterUserAdmin(user) {
+    let userField = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="username"]')), this.timeout);
+    await this.driver.wait(until.elementIsVisible(userField), this.timeout);
+    await userField.sendKeys(user);
+  }
+  async enterPasswordAdmin(password) {
+    let passwordField = await this.driver.wait(until.elementLocated(By.xpath('//input[@id="login"]')), this.timeout);
+    await passwordField.sendKeys(password);
+  }
+
+  async clickLoginAdmin() {
+    let loginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@class-name="action-login"]')), this.timeout);
+    await this.driver.sleep(1000);
+    await loginButton.click();
+    await this.driver.sleep(10000);
   }
 
   async clickLogin() {

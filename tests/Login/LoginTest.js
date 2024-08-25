@@ -49,4 +49,35 @@ describe('Login Test', function () {
     }
   });
 
+  it('must open login in admin', async function () {
+    try {
+      await loginPage.openAdmin();
+      await saveScreenshot(driver, 'screenshots/3_success_should_open_the_login_admin_page.png');
+    } catch (error) {
+      if (driver) {
+        await saveScreenshot(driver, 'screenshots/3_error_should_open_the_login_admin_page.png');
+        await driver.quit();
+      }
+
+      throw error;
+    }
+  });
+
+  it('must login in admin', async function () {
+    try {
+      await loginPage.enterUserAdmin('viniciush.oliveira');
+      await loginPage.enterPasswordAdmin('Senha123@@@@');
+      await saveScreenshot(driver, 'screenshots/4_success_insert_user.png');
+      await loginPage.clickLoginAdmin();
+      await saveScreenshot(driver, 'screenshots/4_success_access_admin.png');
+    } catch (error) {
+      if (driver) {
+        await saveScreenshot(driver, 'screenshots/2_error_must_admin_login.png')
+        await driver.quit();
+      }
+
+      throw error;
+    }
+  });
+
 });

@@ -1,8 +1,5 @@
 
 import './Login/LoginTest.js'
-import { loginMagentoAdmin } from './Admin/AdminTest.js';
-
-await loginMagentoAdmin();
 
 // import './Users/RegisterStudentTest.js';
 // import './Users/RegisterResponsibleTest.js';
