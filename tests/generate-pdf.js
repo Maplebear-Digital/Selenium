@@ -18,7 +18,7 @@ imageFiles.forEach((file, index) => {
     }
 
     const title = path.basename(file, path.extname(file));
-    doc.fontSize(18).text(title, { align: 'center', underline: true }); // Título centralizado e sublinhado
+    doc.fontSize(18).text(title, { align: 'center', underline: true , color: 'green'}); // Título centralizado e sublinhado
 
     doc.moveDown(); // Adiciona um espaço entre o título e a imagem
 
