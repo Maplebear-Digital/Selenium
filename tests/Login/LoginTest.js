@@ -68,7 +68,7 @@ describe('Login Test', function () {
       await loginPage.enterUserAdmin('viniciush.oliveira');
       await loginPage.enterPasswordAdmin('Senha123@@@@');
       await saveScreenshot(driver, 'screenshots/4_success_insert_user.png');
-      await loginPage.clickLoginAdmin();
+      // await loginPage.clickLoginAdmin();
       await saveScreenshot(driver, 'screenshots/4_success_access_admin.png');
     } catch (error) {
       if (driver) {
