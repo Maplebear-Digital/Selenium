@@ -8,7 +8,7 @@ let salesPage;
 let cpf = generateCPF()
 
 describe('Order Admin Test', function () {
-  this.timeout(100000);
+  this.timeout(30000);
 
   before(async function () {
     driver = await getDriver();

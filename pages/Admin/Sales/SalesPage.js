@@ -18,15 +18,16 @@ export class SalesPage {
   }
 
   async loginCustomer() {
-    let loginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="guest_to_customer"]')), this.timeout);
-    await this.driver.sleep(1000);
+    let loginButton = await driver.wait(until.elementLocated(By.id('guest_to_customer')), timeout);
+    await driver.wait(until.elementIsVisible(loginButton), timeout);
+    await driver.wait(until.elementIsEnabled(loginButton), timeout);
     await loginButton.click();
-    await this.driver.sleep(1000);
 
-    let AcceptLoginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@class="action-accept"]')), this.timeout);
-    await this.driver.sleep(1000);
-    await AcceptLoginButton.click();
-    await this.driver.sleep(1000);
+    // Aguarda até que o botão "action-accept" esteja visível e clicável
+    let acceptLoginButton = await driver.wait(until.elementLocated(By.className('action-accept')), timeout);
+    await driver.wait(until.elementIsVisible(acceptLoginButton), timeout);
+    await driver.wait(until.elementIsEnabled(acceptLoginButton), timeout);
+    await acceptLoginButton.click();
   }
 
   async openLoggedCustomerFrontend() {
