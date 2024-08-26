@@ -22,7 +22,7 @@ describe('Order Admin Test', function () {
   it('should open the list of orders', async function () {
     try {
       await salesPage.open();
-      await saveScreenshot(driver, 'screenshots/4. Entrar na lista de pedidos.png');
+      await saveScreenshot(driver, 'screenshots/7. Entrar na lista de pedidos.png');
     } catch (error) {
       if (driver) {
         await saveScreenshot(driver, 'screenshots/5. Erro ao entrar na lista de pedidos.png');
@@ -36,7 +36,7 @@ describe('Order Admin Test', function () {
   it('should open an order', async function () {
     try {
       await salesPage.openOrder('317014');
-      await saveScreenshot(driver, 'screenshots/4. Entrar na tela de um pedido.png');
+      await saveScreenshot(driver, 'screenshots/8. Entrar no pedido 317014.png');
     } catch (error) {
       if (driver) {
         await saveScreenshot(driver, 'screenshots/5. Erro ao entrar na tela de um pedidos.png');
