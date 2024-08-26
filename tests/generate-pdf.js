@@ -10,10 +10,10 @@ doc.pipe(fs.createWriteStream(outputPDF));
 
 // Página inicial
 doc.fontSize(26)
-    .text('Report de teste', { align: 'center' })
+    .text('Report de Teste', { align: 'center' })
     .moveDown(0.5)
     .fontSize(20)
-    .text('Testes no Magento', { align: 'center' });
+    .text('Testes na Maplebear Store by Magento 2.4.6', { align: 'center' });
 
 doc.addPage(); // Adiciona uma nova página para as imagens
 
