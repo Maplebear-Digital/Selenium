@@ -1,5 +1,6 @@
 
 import './Login/LoginTest.js'
+import './Admin/Sales/SalesTest.js'
 
 // import './Users/RegisterStudentTest.js';
 // import './Users/RegisterResponsibleTest.js';
