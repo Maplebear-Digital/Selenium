@@ -8,5 +8,6 @@ export class SalesPage {
 
   async open() {
     await this.driver.get(this.urlAdminSalesList);
+    await this.driver.sleep(5000);
   }
 }
