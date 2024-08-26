@@ -26,7 +26,7 @@ export class SalesPage {
     let AcceptLoginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@class="action-accept"]')), this.timeout);
     await this.driver.sleep(1000);
     await AcceptLoginButton.click();
-    await this.driver.sleep(10000);
+    await this.driver.sleep(1000);
   }
 
   async openLoggedCustomerFrontend() {
