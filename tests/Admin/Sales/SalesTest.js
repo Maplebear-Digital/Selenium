@@ -47,4 +47,19 @@ describe('Order Admin Test', function () {
     }
   });
 
+  it('should make login in customer', async function () {
+    try {
+      await salesPage.loginCustomer();
+      await salesPage.openLoggedCustomerFrontend();
+      await saveScreenshot(driver, 'screenshots/9. Fazer login no cliente que fez o pedido.png');
+    } catch (error) {
+      if (driver) {
+        await saveScreenshot(driver, 'screenshots/5. Erro ao entrar na tela de um pedidos.png');
+        await driver.quit();
+      }
+
+      throw error;
+    }
+  });
+
 });

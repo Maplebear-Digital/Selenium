@@ -16,4 +16,21 @@ export class SalesPage {
     await this.driver.get(orderUrl);
     await this.driver.sleep(5000);
   }
+
+  async loginCustomer() {
+    let loginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@id="guest_to_customer"]')), this.timeout);
+    await this.driver.sleep(1000);
+    await loginButton.click();
+    await this.driver.sleep(1000);
+
+    let AcceptLoginButton = await this.driver.wait(until.elementLocated(By.xpath('//*[@class="action-accept"]')), this.timeout);
+    await this.driver.sleep(1000);
+    await AcceptLoginButton.click();
+    await this.driver.sleep(10000);
+  }
+
+  async openLoggedCustomerFrontend() {
+    await this.driver.get('https://b2c-staging.maplebearstore.com.br/customer/account/index/');
+    await this.driver.sleep(5000);
+  }
 }
