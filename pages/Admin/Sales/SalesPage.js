@@ -22,8 +22,9 @@ export class SalesPage {
     await this.driver.wait(until.elementIsVisible(loginButton), this.timeout);
     await this.driver.wait(until.elementIsEnabled(loginButton), this.timeout);
     await loginButton.click();
+  }
 
-    // Aguarda até que o botão "action-accept" esteja visível e clicável
+  async acceptLoginCustomer() {
     let acceptLoginButton = await this.driver.wait(until.elementLocated(By.className('action-accept')), this.timeout);
     await this.driver.wait(until.elementIsVisible(acceptLoginButton), this.timeout);
     await this.driver.wait(until.elementIsEnabled(acceptLoginButton), this.timeout);

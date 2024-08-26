@@ -50,6 +50,9 @@ describe('Order Admin Test', function () {
   it('should make login in customer', async function () {
     try {
       await salesPage.loginCustomer();
+      await saveScreenshot(driver, 'screenshots/9. Clica no botão para fazer login.png');
+      await salesPage.acceptLoginCustomer();
+      await saveScreenshot(driver, 'screenshots/9. Clica no botão para aceitar login.png');
       await salesPage.openLoggedCustomerFrontend();
       await saveScreenshot(driver, 'screenshots/9. Fazer login no cliente que fez o pedido.png');
     } catch (error) {
