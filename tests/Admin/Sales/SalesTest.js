@@ -33,4 +33,18 @@ describe('Login Test', function () {
     }
   });
 
+  it('should open an order', async function () {
+    try {
+      await salesPage.openOrder('317014');
+      await saveScreenshot(driver, 'screenshots/4. Entrar na tela de um pedido.png');
+    } catch (error) {
+      if (driver) {
+        await saveScreenshot(driver, 'screenshots/5. Erro ao entrar na tela de um pedidos.png');
+        await driver.quit();
+      }
+
+      throw error;
+    }
+  });
+
 });
