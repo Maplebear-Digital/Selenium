@@ -32,6 +32,7 @@ export class SalesPage {
   }
 
   async openLoggedCustomerFrontend() {
+    await this.driver.sleep(5000);
     await this.driver.get('https://b2c-staging.maplebearstore.com.br/customer/account/index/');
     await this.driver.sleep(5000);
   }
