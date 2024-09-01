@@ -32,7 +32,7 @@ Como a IA me ajudou?
 
 EXEMPLO PRÁTICO
 
-chat gpt:
+chat gpt (prompts):
 
 Eu quero montar uma infraestutura que reconheça quando um commit seja feito e rode uma bateria de testes automatizados no meu site para evitar que algo tenha parado de funcionar. Como eu faço isso? (aqui explicar o que é workflow (é um computador criado especificamente para subir todos os programas necessários para montar a infresturura))
 
@@ -49,3 +49,5 @@ CONCLUSÃO
 Monstrar o workflow funcionando!
 
 Falar que o workflow é totalmente customizado. Eu fiz pra ser executado na Maplebear Store, mas todos os sistemas podem usar a mesma infraestrutura para criar testes automatizados.
+
+Dúvidas!!!
