@@ -8,7 +8,7 @@
     "test:pdf": "npx mocha --bail tests/generate-pdf.js"
   },
   "dependencies": {
-    "chromedriver": "^126.0.0",
+    "chromedriver": "^128.0.0",
     "mocha": "^10.7.0",
     "pdfkit": "^0.12.3",
     "selenium-webdriver": "^4.0.0"
